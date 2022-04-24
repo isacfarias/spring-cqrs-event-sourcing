@@ -5,6 +5,7 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -25,6 +26,7 @@ public class User {
     @Email(message = "please provide a valid email address")
     private String emailAddress;
     @NotNull(message = "please provide account credentials")
+    @Valid
     private Account account;
 
 }
