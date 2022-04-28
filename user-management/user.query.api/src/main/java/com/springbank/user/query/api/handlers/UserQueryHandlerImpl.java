@@ -1,5 +1,6 @@
 package com.springbank.user.query.api.handlers;
 
+import com.springbank.user.core.models.User;
 import com.springbank.user.query.api.dto.UserLookupResponse;
 import com.springbank.user.query.api.queries.FindAllUsersQuery;
 import com.springbank.user.query.api.queries.FindUserByIdQuery;
@@ -23,7 +24,7 @@ public class UserQueryHandlerImpl implements UserQueryHandler {
     @Override
     public UserLookupResponse getUserById(FindUserByIdQuery query) {
         var user  = userRepository.findById(query.getId());
-        return user.isPresent() ? new UserLookupResponse(user.get()) : mull;
+        return user.map(UserLookupResponse::new).orElse(null);
     }
 
     @QueryHandler
@@ -35,7 +36,7 @@ public class UserQueryHandlerImpl implements UserQueryHandler {
     @QueryHandler
     @Override
     public UserLookupResponse getAllUsers(FindAllUsersQuery query) {
-        return new UserLookupResponse(userRepository.findAll());
+        return new UserLookupResponse((User) userRepository.findAll());
     }
 
 }
