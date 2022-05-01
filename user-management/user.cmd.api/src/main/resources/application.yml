@@ -7,3 +7,9 @@ spring:
       host: localhost
       port: 27017
       database: user
+
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: springbankSignInKey
