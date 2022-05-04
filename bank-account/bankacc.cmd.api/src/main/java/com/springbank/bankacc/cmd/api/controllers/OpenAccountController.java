@@ -1,6 +1,5 @@
 package com.springbank.bankacc.cmd.api.controllers;
 
-
 import com.springbank.bankacc.cmd.api.commands.OpenAccountCommand;
 import com.springbank.bankacc.cmd.api.dto.OpenAccountRespoonse;
 import com.springbank.bankacc.core.dto.BaseResponse;
@@ -38,7 +37,7 @@ public class OpenAccountController {
             commandGateway.send(command);
             return new ResponseEntity<>(new OpenAccountRespoonse(id, "successfully opened a new bank account!"), HttpStatus.CREATED);
         } catch (Exception e) {
-            var safeErrorMessage = "Error wile processing request to open a new bak account for id - ".concat(id);
+            var safeErrorMessage = "Error while processing request to open a new bank account for id - ".concat(id);
             log.error(safeErrorMessage);
             return new ResponseEntity<>(new OpenAccountRespoonse(id, safeErrorMessage), HttpStatus.INTERNAL_SERVER_ERROR);
         }
