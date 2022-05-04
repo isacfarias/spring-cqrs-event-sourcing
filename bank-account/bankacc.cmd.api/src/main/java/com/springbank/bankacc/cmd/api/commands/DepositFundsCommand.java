@@ -6,7 +6,7 @@ import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
 @Data
 @Builder
-public class DepositFoundsCommand {
+public class DepositFundsCommand {
 
     @TargetAggregateIdentifier
     private String Id;
