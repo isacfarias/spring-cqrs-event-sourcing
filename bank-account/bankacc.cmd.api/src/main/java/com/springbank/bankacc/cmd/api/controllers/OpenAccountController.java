@@ -6,10 +6,10 @@ import com.springbank.bankacc.cmd.api.dto.OpenAccountRespoonse;
 import com.springbank.bankacc.core.dto.BaseResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.axonframework.commandhandling.gateway.CommandGateway;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +24,7 @@ import java.util.UUID;
 public class OpenAccountController {
 
     private final CommandGateway commandGateway;
-
+    @Autowired
     public OpenAccountController(CommandGateway commandGateway) {
         this.commandGateway = commandGateway;
     }
