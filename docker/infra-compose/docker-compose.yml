@@ -6,6 +6,7 @@ services:
     image: axoniq/axonserver
     hostname: axon-server
     restart: always
+    container_name: axon-server
     ports:
       - '8024:8024'
       - '8124:8124'
@@ -15,6 +16,7 @@ services:
 
   mongodb:
     image: mongo:latest
+    container_name: mongo-container     
     ports:
       - 27017:27017
     volumes:
@@ -24,6 +26,7 @@ services:
 
   mysqldb:
     image: mysql:latest
+    container_name: mysql-container     
     restart: always
     ports:
       - 3306:3306
@@ -37,3 +40,5 @@ services:
 
 networks:
   springbankNet:
+    name: springbankNet
+     
