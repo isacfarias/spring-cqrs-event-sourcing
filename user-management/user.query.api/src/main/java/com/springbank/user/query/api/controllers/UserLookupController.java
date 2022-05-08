@@ -5,7 +5,6 @@ import com.springbank.user.query.api.queries.FindAllUsersQuery;
 import com.springbank.user.query.api.queries.FindUserByIdQuery;
 import com.springbank.user.query.api.queries.SearchUsersQuery;
 import lombok.extern.slf4j.Slf4j;
-import org.axonframework.messaging.responsetypes.ResponseType;
 import org.axonframework.messaging.responsetypes.ResponseTypes;
 import org.axonframework.queryhandling.QueryGateway;
 import org.springframework.beans.factory.annotation.Autowired;

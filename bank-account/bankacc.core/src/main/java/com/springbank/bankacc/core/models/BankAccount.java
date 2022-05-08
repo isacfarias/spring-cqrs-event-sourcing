@@ -13,7 +13,6 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
 @Entity
 public class BankAccount {
@@ -24,11 +23,6 @@ public class BankAccount {
     private Date creationDate;
     private AccountType accountType;
     private double balance;
-
-
-
-
-
 
     @Override
     public boolean equals(Object o) {
