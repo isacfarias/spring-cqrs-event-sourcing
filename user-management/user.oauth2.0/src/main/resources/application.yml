@@ -11,7 +11,7 @@ security:
   oauth2:
     client:
       client-id: springBankClient
-      secret: springBankSecret
+      client-secret: springBankSecret
       signing-key: springbankSignInKey
       token-validity-seconds: 300
       refresh-token-validity-seconds: 1500

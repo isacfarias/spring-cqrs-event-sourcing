@@ -19,14 +19,18 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Value("${security.oauth2.client.client-id}")
     private String clientId;
-    @Value("${security.oauth2.client.secret}")
+
+    @Value("${security.oauth2.client.client-secret}")
     private String clientSecret;
+
     @Value("${security.oauth2.client.signing-key}")
-    private String signinKey;
+    private String signingKey;
+
     @Value("${security.oauth2.client.token-validity-seconds}")
-    private int tokenVality;
+    private int tokenValidity;
+
     @Value("${security.oauth2.client.refresh-token-validity-seconds}")
-    private int refrshTokenValidity;
+    private int refreshTokenValidity;
 
     @Autowired
     @Qualifier("authenticationManagerBean")
@@ -35,7 +39,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     @Bean
     public JwtAccessTokenConverter tokenConverter() {
         var converter = new JwtAccessTokenConverter();
-        converter.setSigningKey(signinKey);
+        converter.setSigningKey(signingKey);
 
         return converter;
     }
@@ -57,8 +61,8 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
                 .secret(new BCryptPasswordEncoder(12).encode(clientSecret))
                 .scopes("read", "write")
                 .authorizedGrantTypes("password", "refresh_token")
-                .accessTokenValiditySeconds(tokenVality)
-                .refreshTokenValiditySeconds(refrshTokenValidity)
+                .accessTokenValiditySeconds(tokenValidity)
+                .refreshTokenValiditySeconds(refreshTokenValidity)
         ;
     }
 

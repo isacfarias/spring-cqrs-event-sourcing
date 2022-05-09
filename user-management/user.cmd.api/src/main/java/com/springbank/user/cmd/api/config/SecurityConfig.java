@@ -12,7 +12,7 @@
 //
 //    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
-//        http.authorizeHttpRequests()
+//        http.authorizeRequests()
 //                .antMatchers("/**")
 //                .permitAll()
 //                .anyRequest()

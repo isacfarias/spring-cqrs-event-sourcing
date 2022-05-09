@@ -28,9 +28,6 @@ public class RegisterUserController {
     public RegisterUserController(CommandGateway commandGateway) {
         this.commandGateway = commandGateway;
     }
-
-
-
     @PostMapping
     @PreAuthorize("hasAuthority('WRITE_PRIVILEGE')")
     public ResponseEntity<RegisterUserResponse> registerUser(@Valid @RequestBody RegisterUserCommand command) {
